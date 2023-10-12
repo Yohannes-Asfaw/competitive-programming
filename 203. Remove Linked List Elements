@@ -1,0 +1,16 @@
+def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+
+        dummy=ListNode(0,head)
+        prev=dummy
+        next1=head
+        while next1:
+            while next1 and next1.val==val:
+                next1=next1.next
+            
+            prev.next=next1
+            prev=next1
+            if not next1:
+                return dummy.next
+            else:
+                next1=next1.next
+        return dummy.next
