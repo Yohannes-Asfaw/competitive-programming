@@ -6,13 +6,11 @@ class Solution:
             j+=1
         for i in range(j+1,len(forts)):
             if forts[i]!=0:
-                
                 if forts[j]==-forts[i]:
                     ans=max(ans,i-j-1)
                     j=i
                 else:
                     j=i
-            
         return ans
 
         
