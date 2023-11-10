@@ -15,3 +15,5 @@ class Solution:
                 if stack1:
                     stack1.pop()
         return stack1==stack
+        
+        
