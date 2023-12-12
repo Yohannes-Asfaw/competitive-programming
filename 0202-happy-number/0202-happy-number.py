@@ -1,8 +1,10 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
-        while n != 1 and n != 4:
-            sum = 0
-            for i in str(n):
-                sum += int(i)**2
-            n = sum
-        return n==1
+        check = set()
+        while n != 1:
+            if n in check: 
+                return False
+            check.add(n)
+            n = sum([int(i) ** 2 for i in str(n)])
+        return True
+        
