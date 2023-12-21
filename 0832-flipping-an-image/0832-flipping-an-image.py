@@ -2,10 +2,13 @@ class Solution:
     def flipAndInvertImage(self, image: List[List[int]]) -> List[List[int]]:
         for i in range(len(image)):
             image[i]=image[i][::-1]
-        for j in range(len(image)):
-            for m in range(len(image[0])):
-                if image[j][m]==1:
-                    image[j][m]=0
+        print(image)
+        for i in range(len(image[0])):
+            for j in range(len(image)):
+                if image[i][j]==1:
+                    image[i][j]=0
                 else:
-                    image[j][m]=1
+                    image[i][j]=1
         return image
+            
+         
