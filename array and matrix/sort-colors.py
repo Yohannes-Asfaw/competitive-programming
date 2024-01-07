@@ -3,15 +3,21 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        zeros=nums.count(0)
-        ones=nums.count(1)
-        for i in range(len(nums)):
-            if zeros>0:
-                nums[i]=0
-                zeros-=1
-            elif ones>0:
-                nums[i]=1
-                ones-=1
-            else:
-                nums[i]=2
+        l=0 
+        mid=0 
+        r=len(nums)-1 
+        while mid<=r:
+            if nums[mid]==0: 
+                nums[mid],nums[l]=nums[l],nums[mid]
+                mid+=1 
+                l+=1
+                
+            elif nums[mid]==1: 
+                mid+=1
+                
+            else: 
+                nums[mid],nums[r]=nums[r],nums[mid]
+                r-=1 
+                
+        
         
