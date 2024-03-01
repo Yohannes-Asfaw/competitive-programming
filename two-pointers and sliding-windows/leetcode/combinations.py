@@ -1,14 +1,21 @@
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        ans=[]
-        def comb(i,path):
-            if len(path)==k:
-                ans.append(path.copy())
-            for j in range(i,n+1):
-                path.append(j)
-                comb(j+1,path)
-                path.pop()
-        comb(1,[])
-        print(ans)
-        return ans
+        combinations=[num for num in range(1,n+1)]
+        combs=[]
+        # choose or not choose
+        def binary(i,com):
+            if len(com)==k:
+                combs.append(com.copy())
+                return 
+            if i>=n:
+                return 
+            # include i this will be executed first of all time in the recursion
+            com.append(combinations[i])
+            binary(i+1,com) 
+            com.pop()
+            # not include i just continue
+            binary(i+1,com)
+        binary(0,[])
+        return combs
+       
             
